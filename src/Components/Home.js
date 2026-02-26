@@ -3,12 +3,11 @@ import Lottie from  "lottie-react";
 import SpaceBoy from "../LottieFiles/SpaceBoy.json";
 import Typed from "./Typed.js";
 import Tilt from 'react-parallax-tilt';
-import Avatar from '../images/Avatar.png';
-import {CiCoffeeCup} from "react-icons/ci";
+import ProfilePhoto from '../images/profile.jpeg';
 
 const Home = () => {
   return (
-    <div >
+    <div>
       <div className='HomePage'>
 
         <div className='HomeText'>
@@ -26,9 +25,16 @@ const Home = () => {
       </div>
 
       <div className='AboutPage'>
+
+        {/* ── Photo on LEFT ── */}
+        <Tilt>
+          <img className='Avatar' src={ProfilePhoto} alt="Sanchit Satpaise" />
+        </Tilt>
+
+        {/* ── Text on RIGHT ── */}
         <div className='AboutText'>
           <h1 className='AboutTextHeading'>Brief <b>introduction</b></h1>
-         <p>I love the process of transforming raw data into meaningful insights and models 
+          <p>I love the process of transforming raw data into meaningful insights and models 
   that drive better decisions and real-world impact. 
   I want to do work that challenges me as a data professional & work that I can 
   be proud of.<br /><br />
@@ -36,11 +42,9 @@ const Home = () => {
   <b> Data Statistics</b>, and <b>Machine Learning</b>.<br />
   I am currently working on projects involving <b>Data Visualization</b>, 
   <b>Predictive Modeling</b>, and <b>Exploratory Data Analysis</b>.<br /><br />  
-</p>
+          </p>
         </div>
-        <Tilt>
-          <img className='Avatar' src={Avatar} alt="" />
-        </Tilt>
+
       </div>
     </div>
   )

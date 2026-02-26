@@ -1,7 +1,7 @@
 import React from 'react';
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import {GrMail} from "react-icons/gr";
-import {SiLeetcode} from "react-icons/si"
+
 
 const Footer = () => {
   return (
@@ -9,10 +9,9 @@ const Footer = () => {
       <h4>Developed by SWS</h4>
       <h4>Copyright &copy; 2026</h4>
       <div className='footerLinks'>
-        <a href="https://github.com/DevanshSahni" target='_blank'><FaGithub/></a>
-        <a href="https://www.linkedin.com/in/devansh-sahni/" target='_blank'><FaLinkedin/></a>
-        <a href='mailTo:devanshsahni@gmail.com' target='_blank'><GrMail/></a>
-        <a href="https://leetcode.com/sahni1403/" target="_blank"><SiLeetcode/></a>
+        <a href="https://github.com/sanchitsatpaise" target='_blank'><FaGithub/></a>
+        <a href="https://www.linkedin.com/in/sanchit-satpaise/" target='_blank'><FaLinkedin/></a>
+        <a href='mailto:sanchitsatpaise4771@gmail.com' target='_blank'><GrMail/></a>
       </div>
     </footer>
   )

@@ -1,36 +1,59 @@
 import React, { useState } from 'react';
-import { BsDownload } from "react-icons/bs";
-import pdf from "../Resume.pdf";
-import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
+const resumes = {
+  analyst: {
+    label: 'Data Analyst',
+    preview: '/Sanchit_Satpaise_9373478347_page-0001.jpg',
+    pdf: '/Sanchit_Satpaise_9373478347.pdf',
+    download: 'Sanchit_Satpaise_DataAnalyst.pdf',
+  },
+  science: {
+    label: 'Data Science',
+    preview: '/Sanchit_Satpaise_DS_9373478347_page-0001.jpg',
+    pdf: '/Sanchit_Satpaise_DS_9373478347.pdf',
+    download: 'Sanchit_Satpaise_DataScience.pdf',
+  },
+};
 
 const Resume = () => {
-  const[wid, setwid]=useState(window.innerWidth);
-
-  const handleResize=()=>{
-    setwid(window.innerWidth);
-  }
-
-  window.addEventListener("load", handleResize);
-  window.addEventListener("resize", handleResize);
+  const [active, setActive] = useState('analyst');
+  const current = resumes[active];
 
   return (
     <div className='ResumePage'>
-      <Document file={pdf} className="resumeview">
-          <Page pageNumber= {1} scale={wid<700 ? ( wid>475? 0.7: 0.5): 1}/>
-      </Document>
+      <h1 className='resumeHeading'>My <b>Resume</b></h1>
 
-      <a href={pdf} target='_blank' download="Devansh's Resume">
-        <button className='downloadCV' type='button'>
-          <h3><BsDownload/>&nbsp; Download CV</h3>
+      {/* ── Toggle Tabs ── */}
+      <div className='resumeTabs'>
+        {Object.entries(resumes).map(([key, val]) => (
+          <button
+            key={key}
+            className={`resumeTab ${active === key ? 'activeTab' : ''}`}
+            onClick={() => setActive(key)}
+          >
+            {val.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Resume Image Preview ── */}
+      <div className='resumeWrapper'>
+        <img
+          key={current.preview}
+          src={current.preview}
+          alt={`${current.label} Resume`}
+          className='resumeImg'
+        />
+      </div>
+
+      {/* ── Download PDF Button ── */}
+      <a href={current.pdf} download={current.download}>
+        <button className='downloadCV'>
+          ⬇ Download {current.label} Resume
         </button>
       </a>
-
     </div>
-  )
-}
+  );
+};
 
-export default Resume
+export default Resume;

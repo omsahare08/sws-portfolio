@@ -10,6 +10,8 @@ import MoveToTop from "./Components/MoveToTop";
 import Lottie from  "lottie-react";
 import nightsky from "./LottieFiles/night-sky.json";
 import HashLoader from "react-spinners/HashLoader";
+import Contact from "./Components/Contact";
+
 
 
 function App() {
@@ -50,6 +52,7 @@ function App() {
         <Route path="/About" element={<About/>}/>
         <Route path="/Project" element={<Project/>}/>
         <Route path="/Resume" element={<Resume/>}/>
+        <Route path="/Contact" element={<Contact />} />
       </Routes>
       
       <Footer/>
